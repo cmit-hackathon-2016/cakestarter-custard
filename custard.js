@@ -1,5 +1,6 @@
 var express = require('express');
 var bodyparser = require('body-parser');
+var playerStore = require('./player-store');
 
 var app = express();
 app.use(bodyparser.json())
@@ -7,11 +8,20 @@ app.use(bodyparser.json())
 app.get('/players/:address', function(req, res, next) {
   var address = req.params.address;
   res.json({message:'Hello, ' + address});
+  var player = playerStore.read(address);
+  if (typeof player !== 'undefined') {
+    res.json(player);
+  } else {
+    res.status(404).json({ error : "No such player" });
+  }
   next();
 });
 
 app.put('/players/:address', function(req, res, next) {
-  res.json(req.body);
+  var address = req.params.address;
+  var player = req.body;
+  playerStore.save(address, player);
+  res.json(player);
   next();
 });
 
