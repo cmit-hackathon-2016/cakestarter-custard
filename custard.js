@@ -7,7 +7,6 @@ app.use(bodyparser.json())
 
 app.get('/players/:address', function(req, res, next) {
   var address = req.params.address;
-  res.json({message:'Hello, ' + address});
   var player = playerStore.read(address);
   if (typeof player !== 'undefined') {
     res.json(player);
