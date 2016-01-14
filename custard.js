@@ -4,10 +4,6 @@ var bodyparser = require('body-parser');
 var app = express();
 app.use(bodyparser.json())
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
 app.get('/players/:address', function(req, res, next) {
   var address = req.params.address;
   res.json({message:'Hello, ' + address});
