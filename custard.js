@@ -1,6 +1,8 @@
 var express = require('express');
+var bodyparser = require('body-parser');
 
 var app = express();
+app.use(bodyparser.json())
 
 app.get('/', function (req, res) {
   res.send('Hello World!');
@@ -9,6 +11,11 @@ app.get('/', function (req, res) {
 app.get('/players/:address', function(req, res, next) {
   var address = req.params.address;
   res.json({message:'Hello, ' + address});
+  next();
+});
+
+app.put('/players/:address', function(req, res, next) {
+  res.json(req.body);
   next();
 });
 
