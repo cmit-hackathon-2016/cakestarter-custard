@@ -1,0 +1,24 @@
+{
+  "name": "cakestarter-custard",
+  "version": "0.1.0",
+  "description": "Cakestarter API",
+  "main": "custard.js",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cmit-hackathon-2016/cakestarter-custard.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/cmit-hackathon-2016/cakestarter-custard/issues"
+  },
+  "homepage": "https://github.com/cmit-hackathon-2016/cakestarter-custard#readme"
+}
