@@ -5,6 +5,12 @@ var playerStore = require('./player-store');
 var app = express();
 app.use(bodyparser.json())
 
+app.get('/players', function(req, res, next) {
+  var players = playerStore.all();
+  res.json(players);
+  next();
+});
+
 app.get('/players/:address', function(req, res, next) {
   var address = req.params.address;
   var player = playerStore.read(address);
